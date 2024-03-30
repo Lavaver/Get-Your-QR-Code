@@ -1,0 +1,21 @@
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\Get Your QR Code.exe
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\Get Your QR Code.deps.json
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\Get Your QR Code.runtimeconfig.json
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\Get Your QR Code.dll
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\Get Your QR Code.pdb
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.Form1.resources
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.csproj.GenerateResource.cache
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.GeneratedMSBuildEditorConfig.editorconfig
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.AssemblyInfoInputs.cache
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.AssemblyInfo.cs
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.csproj.CoreCompileInputs.cache
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.dll
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\refint\Get Your QR Code.dll
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.pdb
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.genruntimeconfig.cache
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\ref\Get Your QR Code.dll
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\QRCoder.dll
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.csproj.AssemblyReference.cache
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your.C282F936.Up2Date
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.Properties.Resources.resources
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.MIT_Lisence.resources
