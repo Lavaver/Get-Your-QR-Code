@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Get Your QR Code")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8f86485f037a78b8d1fb664fc939195ea3c2a30")]
 [assembly: System.Reflection.AssemblyProductAttribute("Get Your QR Code")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Get Your QR Code")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

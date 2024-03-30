@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\desktop\\1331\\Get Your QR Code\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\lisence||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:lisence||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\mit_lisence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:mit_lisence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\lisence.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:lisence.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,20 +38,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LISENCE.txt",
-              "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\LISENCE.txt",
-              "RelativeDocumentMoniker": "LISENCE.txt",
-              "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\LISENCE.txt",
-              "RelativeToolTip": "LISENCE.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-03-30T14:21:45.538Z",
+              "DocumentIndex": 0,
+              "Title": "LISENCE",
+              "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\LISENCE",
+              "RelativeDocumentMoniker": "LISENCE",
+              "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\LISENCE",
+              "RelativeToolTip": "LISENCE",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-30T15:22:13.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MIT_Lisence.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\MIT_Lisence.cs",
               "RelativeDocumentMoniker": "MIT_Lisence.cs",
@@ -63,7 +63,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -71,20 +71,18 @@
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AQIAAC8AAAAAAAAAAAD4vz8AAABqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T23:00:04.776Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-29T23:00:04.776Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\Form1.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-29T22:44:50.238Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "WhenOpened": "2024-03-29T22:44:50.238Z"
             }
           ]
         }
