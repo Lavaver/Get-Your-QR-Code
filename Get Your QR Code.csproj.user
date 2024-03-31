@@ -7,5 +7,14 @@
     <Compile Update="MIT_Lisence.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MouldSpawn_WLAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StartGrapicingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
