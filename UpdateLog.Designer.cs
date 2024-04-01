@@ -39,7 +39,7 @@
             richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(660, 565);
             richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "软件更新 2.0\n---------------------------\n[+] 新增“模板生成”功能，可以使用特定的模板生成窗口生成特定模板格式的二维码\n[=] 包括了一些增量改进";
+            richTextBox1.Text = "软件更新 2.1\n---------------------------\n[+] “模板生成 WLAN”功能添加 WLAN 安全性选择框，用户无需再二次处理二维码以更改加密方式\n";
             // 
             // UpdateLog
             // 
@@ -47,6 +47,7 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(684, 589);
             Controls.Add(richTextBox1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "UpdateLog";

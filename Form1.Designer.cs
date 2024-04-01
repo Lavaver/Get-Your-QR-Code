@@ -41,10 +41,6 @@
             重置底部状态栏ToolStripMenuItem = new ToolStripMenuItem();
             关闭选项ToolStripMenuItem = new ToolStripMenuItem();
             toolStripDropDownButton2 = new ToolStripDropDownButton();
-            二维码大小限制ToolStripMenuItem = new ToolStripMenuItem();
-            根据内容量自动判断ToolStripMenuItem = new ToolStripMenuItem();
-            二维码格式ToolStripMenuItem = new ToolStripMenuItem();
-            根据输入内容自行判断ToolStripMenuItem = new ToolStripMenuItem();
             图片Base64分块大小ToolStripMenuItem = new ToolStripMenuItem();
             区块二维码体积最小但生成量和占用呈几何倍增ToolStripMenuItem = new ToolStripMenuItem();
             区块ToolStripMenuItem = new ToolStripMenuItem();
@@ -63,6 +59,7 @@
             label13 = new Label();
             label12 = new Label();
             groupBox2 = new GroupBox();
+            UpdateLogBtn = new Button();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
@@ -86,7 +83,6 @@
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             tabControl1 = new TabControl();
-            UpdateLogBtn = new Button();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             tabPage3.SuspendLayout();
@@ -134,6 +130,7 @@
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             toolStripDropDownButton1.Size = new Size(53, 24);
             toolStripDropDownButton1.Text = "常规";
+            toolStripDropDownButton1.ToolTipText = "基础控件";
             // 
             // 保存二维码ToolStripMenuItem
             // 
@@ -186,42 +183,13 @@
             // toolStripDropDownButton2
             // 
             toolStripDropDownButton2.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { 二维码大小限制ToolStripMenuItem, 二维码格式ToolStripMenuItem, 图片Base64分块大小ToolStripMenuItem, 模板生成ToolStripMenuItem });
+            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { 图片Base64分块大小ToolStripMenuItem, 模板生成ToolStripMenuItem });
             toolStripDropDownButton2.Image = (Image)resources.GetObject("toolStripDropDownButton2.Image");
             toolStripDropDownButton2.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             toolStripDropDownButton2.Size = new Size(53, 24);
             toolStripDropDownButton2.Text = "生成";
-            // 
-            // 二维码大小限制ToolStripMenuItem
-            // 
-            二维码大小限制ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 根据内容量自动判断ToolStripMenuItem });
-            二维码大小限制ToolStripMenuItem.Name = "二维码大小限制ToolStripMenuItem";
-            二维码大小限制ToolStripMenuItem.Size = new Size(241, 26);
-            二维码大小限制ToolStripMenuItem.Text = "二维码大小限制";
-            // 
-            // 根据内容量自动判断ToolStripMenuItem
-            // 
-            根据内容量自动判断ToolStripMenuItem.Checked = true;
-            根据内容量自动判断ToolStripMenuItem.CheckState = CheckState.Indeterminate;
-            根据内容量自动判断ToolStripMenuItem.Name = "根据内容量自动判断ToolStripMenuItem";
-            根据内容量自动判断ToolStripMenuItem.Size = new Size(227, 26);
-            根据内容量自动判断ToolStripMenuItem.Text = "根据内容量自动判断";
-            // 
-            // 二维码格式ToolStripMenuItem
-            // 
-            二维码格式ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 根据输入内容自行判断ToolStripMenuItem });
-            二维码格式ToolStripMenuItem.Name = "二维码格式ToolStripMenuItem";
-            二维码格式ToolStripMenuItem.Size = new Size(241, 26);
-            二维码格式ToolStripMenuItem.Text = "二维码格式";
-            // 
-            // 根据输入内容自行判断ToolStripMenuItem
-            // 
-            根据输入内容自行判断ToolStripMenuItem.Checked = true;
-            根据输入内容自行判断ToolStripMenuItem.CheckState = CheckState.Indeterminate;
-            根据输入内容自行判断ToolStripMenuItem.Name = "根据输入内容自行判断ToolStripMenuItem";
-            根据输入内容自行判断ToolStripMenuItem.Size = new Size(242, 26);
-            根据输入内容自行判断ToolStripMenuItem.Text = "根据输入内容自动判断";
+            toolStripDropDownButton2.ToolTipText = "二维码生成行为及模板生成";
             // 
             // 图片Base64分块大小ToolStripMenuItem
             // 
@@ -229,6 +197,7 @@
             图片Base64分块大小ToolStripMenuItem.Name = "图片Base64分块大小ToolStripMenuItem";
             图片Base64分块大小ToolStripMenuItem.Size = new Size(241, 26);
             图片Base64分块大小ToolStripMenuItem.Text = "图片 Base64 分块大小";
+            图片Base64分块大小ToolStripMenuItem.ToolTipText = "划分区块大小以减少渲染时间和张数";
             // 
             // 区块二维码体积最小但生成量和占用呈几何倍增ToolStripMenuItem
             // 
@@ -280,6 +249,7 @@
             模板生成ToolStripMenuItem.Name = "模板生成ToolStripMenuItem";
             模板生成ToolStripMenuItem.Size = new Size(241, 26);
             模板生成ToolStripMenuItem.Text = "模板生成";
+            模板生成ToolStripMenuItem.ToolTipText = "通过模板快速生成特定格式二维码";
             // 
             // 带有WLAN信息的二维码ToolStripMenuItem
             // 
@@ -297,6 +267,7 @@
             toolStripDropDownButton3.Name = "toolStripDropDownButton3";
             toolStripDropDownButton3.Size = new Size(68, 24);
             toolStripDropDownButton3.Text = "首选项";
+            toolStripDropDownButton3.ToolTipText = "修改软件的一些行为";
             // 
             // 开机自动启动ToolStripMenuItem
             // 
@@ -382,6 +353,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "制作人员及工具支持";
             // 
+            // UpdateLogBtn
+            // 
+            UpdateLogBtn.Location = new Point(523, 111);
+            UpdateLogBtn.Name = "UpdateLogBtn";
+            UpdateLogBtn.Size = new Size(131, 29);
+            UpdateLogBtn.TabIndex = 5;
+            UpdateLogBtn.Text = "新增功能";
+            UpdateLogBtn.UseVisualStyleBackColor = true;
+            UpdateLogBtn.Click += UpdateLogBtn_Click;
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -409,7 +390,7 @@
             label9.Name = "label9";
             label9.Size = new Size(188, 36);
             label9.TabIndex = 6;
-            label9.Text = "Build 22045";
+            label9.Text = "Build 22047";
             // 
             // label8
             // 
@@ -420,7 +401,7 @@
             label8.Name = "label8";
             label8.Size = new Size(262, 53);
             label8.TabIndex = 5;
-            label8.Text = "Version 2.0";
+            label8.Text = "Version 2.1";
             // 
             // label7
             // 
@@ -617,16 +598,6 @@
             tabControl1.Size = new Size(800, 697);
             tabControl1.TabIndex = 1;
             // 
-            // UpdateLogBtn
-            // 
-            UpdateLogBtn.Location = new Point(523, 111);
-            UpdateLogBtn.Name = "UpdateLogBtn";
-            UpdateLogBtn.Size = new Size(131, 29);
-            UpdateLogBtn.TabIndex = 5;
-            UpdateLogBtn.Text = "新增功能";
-            UpdateLogBtn.UseVisualStyleBackColor = true;
-            UpdateLogBtn.Click += UpdateLogBtn_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -637,10 +608,10 @@
             Controls.Add(tabControl1);
             Controls.Add(statusStrip1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form1";
-            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "获取你的二维码";
             statusStrip1.ResumeLayout(false);
@@ -704,10 +675,6 @@
         private ToolStripMenuItem 重置底部状态栏ToolStripMenuItem;
         private ToolStripMenuItem 关闭选项ToolStripMenuItem;
         private ToolStripDropDownButton toolStripDropDownButton2;
-        private ToolStripMenuItem 二维码大小限制ToolStripMenuItem;
-        private ToolStripMenuItem 根据内容量自动判断ToolStripMenuItem;
-        private ToolStripMenuItem 二维码格式ToolStripMenuItem;
-        private ToolStripMenuItem 根据输入内容自行判断ToolStripMenuItem;
         private ToolStripDropDownButton toolStripDropDownButton3;
         private ToolStripMenuItem 开机自动启动ToolStripMenuItem;
         private ToolStripMenuItem 在下次启动时禁用DPI缩放模式ToolStripMenuItem;
