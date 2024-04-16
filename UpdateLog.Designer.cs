@@ -39,7 +39,7 @@
             richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(660, 565);
             richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "软件更新 2.1\n---------------------------\n[+] “模板生成 WLAN”功能添加 WLAN 安全性选择框，用户无需再二次处理二维码以更改加密方式\n";
+            richTextBox1.Text = "软件更新 2.5\n---------------------------\n[+] “模板生成”功能添加带有 Unix 时间戳的二维码选项\n[+] ”生成“选项卡新增”ECC 纠错“菜单。用户现在可从四种标准的 ECC 纠错方式中选择任意一种\n[+] 实装存储输入到缓存文件及读取、保存二维码到其他位置的功能\n[=] 修复了一些问题\n";
             // 
             // UpdateLog
             // 

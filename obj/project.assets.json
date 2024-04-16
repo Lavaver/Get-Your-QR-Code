@@ -265,7 +265,7 @@
     "D:\\新建文件夹 (18)\\NuGetPackages": {}
   },
   "project": {
-    "version": "2.1.0.22047",
+    "version": "2.5.0.7512",
     "restore": {
       "projectUniqueName": "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj",
       "projectName": "Get Your QR Code",
@@ -338,7 +338,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

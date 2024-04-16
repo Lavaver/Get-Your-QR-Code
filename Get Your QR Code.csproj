@@ -8,11 +8,13 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Authors>Lavaver</Authors>
-    <Version>2.1.0.22047</Version>
     <Copyright>CopyRight © Lavaver 2024</Copyright>
     <PackageProjectUrl>https://github.com/Lavaver/Get-Your-QR-Code</PackageProjectUrl>
     <PackageIcon>icons-192(1).png</PackageIcon>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <UseWPF>False</UseWPF>
+    <FileVersion>2.5.0.7512</FileVersion>
+    <Version>2.5.0.7512</Version>
   </PropertyGroup>
 
   <ItemGroup>

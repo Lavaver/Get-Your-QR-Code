@@ -1,33 +1,89 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 using QRCoder;
 using System.IO;
-using System.Diagnostics;
-using static System.Windows.Forms.DataFormats;
-using Microsoft.VisualBasic.Logging;
-using ZXing.Common;
-using ZXing;
-using ZXing.QrCode;
-using ZXing.Rendering;
-using System.Security.Cryptography.X509Certificates;
-using static System.Net.Mime.MediaTypeNames;
 using System.Drawing.Imaging;
+using static QRCoder.QRCodeGenerator;
 
 namespace Get_Your_QR_Code
 {
+
     public partial class Form1 : Form
     {
+        private ECCLevel eccLevel;
+
         private int ChunkSize = 500; // 设置块大小
 
-        // 创建一个 OpenFileDialog 对象
-        OpenFileDialog openFileDialog = new OpenFileDialog();
+        private string cacheFilePath;
+
+        private string folderPath = "\\PageCachedFile";
         public Form1()
         {
             InitializeComponent();
+
+            // 获取软件所在目录
+            string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            string cacheFolderPath = Path.Combine(appDirectory, "PageCachedFile");
+
+            // 检查缓存文件夹是否存在，如果不存在则创建
+            if (!Directory.Exists(cacheFolderPath))
+            {
+                Directory.CreateDirectory(cacheFolderPath);
+            }
+
+            // 拼接缓存文件的路径
+            cacheFilePath = Path.Combine(cacheFolderPath, "cached_data.txt");
+
+            // 在窗体加载时检查是否存在缓存文件，并加载内容到文本框
+            this.Load += Form1_Load;
+
+            eccLevel = ECCLevel.L;
+
             QRCodeStatus.Text = "就绪";
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // 检查缓存文件所在文件夹是否存在文件
+            string cacheFolder = Path.GetDirectoryName(cacheFilePath);
+            string[] filesInFolder = Directory.GetFiles(cacheFolder);
+            if (filesInFolder.Length > 0)
+            {
+                // 存在文件，可以进行相应处理
+                try
+                {
+                    // 检查缓存文件是否存在
+                    if (File.Exists(cacheFilePath))
+                    {
+                        // 读取缓存文件的内容
+                        string cachedContent = File.ReadAllText(cacheFilePath);
 
+                        // 显示内容并等待用户确认
+                        var result = MessageBox.Show("检测到存在缓存文件，是否加载内容到文本框？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        // 如果用户确认加载内容，则将内容显示在文本框中
+                        if (result == DialogResult.Yes)
+                        {
+                            textBox1.Text = cachedContent;
+
+                            // 加载完内容后删除缓存文件
+                            File.Delete(cacheFilePath);
+
+                            加载缓存文件内容ToolStripMenuItem.Enabled = false;
+                            加载缓存文件内容ToolStripMenuItem.Text = "已读取过缓存文件";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("读取缓存文件时出现错误：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // 文件夹中没有文件，可以进行相应处理，比如禁用菜单项等
+                加载缓存文件内容ToolStripMenuItem.Enabled = false;
+                加载缓存文件内容ToolStripMenuItem.Text = "没有缓存文件";
+            }
+        }
 
 
         private void GenerateQRCode(string text)
@@ -39,7 +95,7 @@ namespace Get_Your_QR_Code
                 int size = CalculateQRCodeSize(text.Length);
 
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.L);
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, eccLevel);
                 QRCode qrCode = new QRCode(qrCodeData);
                 Bitmap qrCodeImage = qrCode.GetGraphic(size); // 设置二维码大小
 
@@ -76,6 +132,7 @@ namespace Get_Your_QR_Code
         {
             string inputText = textBox1.Text;
             GenerateQRCode(inputText);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -99,10 +156,10 @@ namespace Get_Your_QR_Code
             QRCodeStatus.Text = "就绪";
         }
 
-        private async void UpLoadPictureBtn_Click(object sender, EventArgs e)
+        private async void UpLoadPictureBtn_Click_1(object sender, EventArgs e)
         {
             // 创建一个 OpenFileDialog 对象
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
 
             // 设置文件对话框的属性
             openFileDialog.InitialDirectory = "c:\\";
@@ -118,46 +175,108 @@ namespace Get_Your_QR_Code
                     // 获取所选文件的路径
                     string selectedImagePath = openFileDialog.FileName;
 
-                    StartGrapicingPage f3 = new StartGrapicingPage();
-                    f3.Show();
+                    // 弹出文件夹选择对话框
+                    FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                    folderBrowserDialog.Description = "请选择保存位置";
+                    folderBrowserDialog.ShowNewFolderButton = true;
 
-                    QRCodeStatus.Text = "执行生成操作";
-
-                    // 将选中的图片转换为Base64编码
-                    string base64Image = await ConvertImageToBase64Async(selectedImagePath);
-
-                    // 将Base64编码分成块
-                    string[] chunks = ChunkBase64String(base64Image, ChunkSize);
-
-                    // 获取当前日期的字符串表示形式，格式为 "yyyy-MM-dd"
-                    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-
-                    // 创建保存QR码图像的文件夹路径
-                    string qrCodeFolderPath = Path.Combine(System.Windows.Forms.Application.StartupPath, $"QRCode_Picture_Packs_{currentDate}");
-
-                    // 如果文件夹不存在，则创建它
-                    if (!Directory.Exists(qrCodeFolderPath))
+                    // 如果用户点击了确定按钮
+                    if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                     {
-                        Directory.CreateDirectory(qrCodeFolderPath);
+                        string qrCodeFolderPath = folderBrowserDialog.SelectedPath;
+
+                        StartGrapicingPage f3 = new StartGrapicingPage();
+                        f3.Show();
+
+                        QRCodeStatus.Text = "执行生成操作";
+
+                        // 将选中的图片转换为Base64编码
+                        string base64Image = await ConvertImageToBase64Async(selectedImagePath);
+
+                        // 将Base64编码分成块
+                        string[] chunks = ChunkBase64String(base64Image, ChunkSize);
+
+                        // 逐个生成QR码并保存为图像文件
+                        for (int i = 0; i < chunks.Length; i++)
+                        {
+                            string qrCodeFileName = Path.Combine(qrCodeFolderPath, $"qrcode_part_{i}.png");
+                            await GenerateQRCodeAsync(chunks[i], qrCodeFileName);
+
+                            // 更新渲染状态
+                            QRCodeStatus.Text = $"正在渲染第 {i + 1} 张图片，共 {chunks.Length} 张";
+                        }
+
+                        // 更新QRCodeStatus文本框的内容
+                        this.Invoke(new Action(() =>
+                        {
+                            QRCodeStatus.Text = $"生成成功。分块二维码文件已保存在所选位置";
+                        }));
+
+                        MessageBox.Show($"生成成功。分块二维码文件已保存在所选位置", "渲染任务已全部完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    // 逐个生成QR码并保存为图像文件
-                    for (int i = 0; i < chunks.Length; i++)
+                    else
                     {
-                        string qrCodeFileName = Path.Combine(System.Windows.Forms.Application.StartupPath, $"{qrCodeFolderPath}\\qrcode_part_{i}.png");
-                        await GenerateQRCodeAsync(chunks[i], qrCodeFileName);
+                        DialogResult result = MessageBox.Show("检测到你取消了选择操作\n你要保存在默认位置吗？", "你要保存在默认位置吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                        // 更新渲染状态
-                        QRCodeStatus.Text = $"正在渲染第 {i + 1} 张图片，共 {chunks.Length} 张";
+                        // 如果用户点击了“确定”按钮
+                        if (result == DialogResult.OK)
+                        {
+                            try
+                            {
+                                StartGrapicingPage f3 = new StartGrapicingPage();
+                                f3.Show();
+
+                                QRCodeStatus.Text = "执行生成操作";
+
+                                // 将选中的图片转换为Base64编码
+                                string base64Image = await ConvertImageToBase64Async(selectedImagePath);
+
+                                // 将Base64编码分成块
+                                string[] chunks = ChunkBase64String(base64Image, ChunkSize);
+
+                                // 获取当前日期的字符串表示形式，格式为 "yyyy-MM-dd"
+                                string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                                // 创建保存QR码图像的文件夹路径
+                                string qrCodeFolderPath = Path.Combine(System.Windows.Forms.Application.StartupPath, $"QRCode_Picture_Packs_{currentDate}");
+
+                                // 如果文件夹不存在，则创建它
+                                if (!Directory.Exists(qrCodeFolderPath))
+                                {
+                                    Directory.CreateDirectory(qrCodeFolderPath);
+                                }
+
+                                // 逐个生成QR码并保存为图像文件
+                                for (int i = 0; i < chunks.Length; i++)
+                                {
+                                    string qrCodeFileName = Path.Combine(System.Windows.Forms.Application.StartupPath, $"{qrCodeFolderPath}\\qrcode_part_{i}.png");
+                                    await GenerateQRCodeAsync(chunks[i], qrCodeFileName);
+
+                                    // 更新渲染状态
+                                    QRCodeStatus.Text = $"正在渲染第 {i + 1} 张图片，共 {chunks.Length} 张";
+                                }
+
+                                // 更新QRCodeStatus文本框的内容
+                                this.Invoke(new Action(() =>
+                                {
+                                    QRCodeStatus.Text = $"生成成功。分块二维码文件已保存在软件目录下的 /QRCode_Packs_[日期] 文件夹下";
+                                }));
+
+                                MessageBox.Show($"生成成功。分块二维码文件已保存在软件目录下的 {qrCodeFolderPath} 文件夹下", "渲染任务已全部完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception ex)
+                            {
+                                // 将异常信息记录到日志文件
+                                File.AppendAllText("Exception.log", "\r\n" + "--- 引发异常的上一位置中堆栈日志的末尾 ---\n" + ex);
+                                QRCodeStatus.Text = "生成失败。引发异常的堆栈日志已保存在软件目录下";
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+
                     }
-
-                    // 更新QRCodeStatus文本框的内容
-                    this.Invoke(new Action(() =>
-                    {
-                        QRCodeStatus.Text = $"生成成功。分块二维码文件已保存在软件目录下的 /QRCode_Packs_[日期] 文件夹下";
-                    }));
-
-                    MessageBox.Show($"生成成功。分块二维码文件已保存在软件目录下的 {qrCodeFolderPath} 文件夹下", "渲染任务已全部完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -209,14 +328,14 @@ namespace Get_Your_QR_Code
             await Task.Run(() =>
             {
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(data, QRCodeGenerator.ECCLevel.Q);
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(data, eccLevel);
                 QRCode qrCode = new QRCode(qrCodeData);
                 Bitmap qrCodeImage = qrCode.GetGraphic(20);
                 qrCodeImage.Save(outputFileName, System.Drawing.Imaging.ImageFormat.Png);
             });
         }
 
-        private void Help1_Click(object sender, EventArgs e)
+        private void Help1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("选择文件后，程序先将图片进行 Base64 转换，然后将转换后字符串进行分块操作\n完成后将逐个渲染每个区块对应的二维码并输出到软件目录下的 /QRCode_Packs_[日期] 文件夹下\n这个功能用来传输密报或许不错，但如果想要用这种方式来传输比较大的图片的话...\n...那你得做好不间断扫码、合并与转换三重心理打击的准备（", "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -288,17 +407,12 @@ namespace Get_Your_QR_Code
 
         }
 
-        private void 在下次启动时禁用DPI缩放模式ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("禁用 DPI 感知缩放模式可能在某些缩放率下造成包括但不限于：\n- 组件模糊\n- 控件位置错乱\n- 其他在该模式下的软件漏洞等\n要继续？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-        }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
                 pictureBox1.Image = null;
-                QRCodeStatus.Text = "成功操作";
+                QRCodeStatus.Text = "成功的操作";
             }
             catch
             {
@@ -341,7 +455,7 @@ namespace Get_Your_QR_Code
                     bmp.Save(filePath, ImageFormat.Png);
                 }
 
-                QRCodeStatus.Text = "成功操作。渲染后二维码已保存至桌面";
+                QRCodeStatus.Text = "成功的操作。渲染后二维码已保存至桌面";
             }
         }
 
@@ -360,6 +474,196 @@ namespace Get_Your_QR_Code
         {
             UpdateLog f5 = new UpdateLog();
             f5.Show();
+        }
+
+        private void 保存键入内容至缓存文件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("键入内容不得为空", "保存失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    string contentToSave = textBox1.Text;
+
+                    // 获取软件所在目录
+                    string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                    // 拼接保存文件的路径，将文件保存在 PageCachedFile 文件夹中
+                    string cacheFolderPath = Path.Combine(appDirectory, "PageCachedFile");
+                    string cacheFilePath = Path.Combine(cacheFolderPath, "cached_data.txt");
+
+                    // 创建 PageCachedFile 文件夹（如果不存在）
+                    Directory.CreateDirectory(cacheFolderPath);
+
+                    // 将内容写入文件
+                    File.WriteAllText(cacheFilePath, contentToSave);
+
+                    加载缓存文件内容ToolStripMenuItem.Enabled = true;
+                    加载缓存文件内容ToolStripMenuItem.Text = "加载缓存过的键入内容";
+
+                    MessageBox.Show("内容已成功保存至缓存文件。", "保存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存内容时出现错误：" + ex.Message, "保存失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void 加载缓存文件内容ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 检查缓存文件所在文件夹是否存在文件
+            string cacheFolder = Path.GetDirectoryName(cacheFilePath);
+            string[] filesInFolder = Directory.GetFiles(cacheFolder);
+            if (filesInFolder.Length > 0)
+            {
+                加载缓存文件内容ToolStripMenuItem.Enabled = true;
+                try
+                {
+                    // 获取当前日期的字符串表示形式，格式为 "yyyy-MM-dd"
+                    string currentDate = DateTime.Now.ToString("yyyy-MM-dd HH:MM:ss");
+
+                    // 读取缓存文件的内容
+                    string cachedContent = File.ReadAllText(cacheFilePath);
+                    textBox1.Text = null;
+                    textBox1.Text = cachedContent;
+                    QRCodeStatus.Text = "成功的操作";
+                    // 加载完内容后删除缓存文件
+                    File.Delete(cacheFilePath);
+
+                    加载缓存文件内容ToolStripMenuItem.Enabled = false;
+                    加载缓存文件内容ToolStripMenuItem.Text = $"上次读取：{currentDate}";
+                }
+                catch (Exception ex)
+                {
+                    QRCodeStatus.Text = "失败的操作";
+                    MessageBox.Show("读取缓存文件时出现错误：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                加载缓存文件内容ToolStripMenuItem.Enabled = false;
+                加载缓存文件内容ToolStripMenuItem.Text = "没有缓存文件";
+            }
+        }
+
+        private void 其他路径ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image == null)
+            {
+                QRCodeStatus.Text = "失败的操作。检测到实时生成结果框内无二维码存在";
+            }
+            else
+            {
+                try
+                {
+                    // 创建一个 SaveFileDialog 对象
+                    using (System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "PNG 图像文件 (*.png)|*.png";
+                        saveFileDialog.Title = "选择保存位置";
+                        saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        saveFileDialog.RestoreDirectory = true;
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            // 获取用户选择的保存路径
+                            string filePath = saveFileDialog.FileName;
+
+                            using (Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height))
+                            {
+                                pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
+
+                                // 保存图像
+                                bmp.Save(filePath, ImageFormat.Png);
+                            }
+
+                            QRCodeStatus.Text = $"成功的操作。渲染后二维码已保存至：{filePath}";
+                        }
+                        else
+                        {
+                            QRCodeStatus.Text = "用户取消了保存操作";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    QRCodeStatus.Text = $"保存图像时出现错误：{ex.Message}";
+                }
+            }
+        }
+
+        private void 带有Unix时间戳的二维码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 生成当前时间的Unix时间戳
+                long unixTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+                // 将时间戳转换为字符串
+                string timestampString = unixTimestamp.ToString();
+
+                // 创建二维码生成器对象
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(timestampString, eccLevel);
+                QRCode qrCode = new QRCode(qrCodeData);
+
+                // 将二维码转换为位图图像
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+                // 保存二维码到桌面
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string qrCodeFilePath = Path.Combine(desktopPath, "UnixTimestampQRCode.png");
+                qrCodeImage.Save(qrCodeFilePath, System.Drawing.Imaging.ImageFormat.Png);
+
+                MessageBox.Show($"二维码已保存到桌面：{qrCodeFilePath}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"生成二维码时出现错误：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void l低纠错7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eccLevel = ECCLevel.L;
+            m中等纠错15ToolStripMenuItem.Checked = false;
+            q较高容错25ToolStripMenuItem.Checked = false;
+            h精密容错30ToolStripMenuItem.Checked = false;
+            l低纠错7ToolStripMenuItem.Checked = true;
+
+        }
+
+        private void m中等纠错15ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eccLevel = ECCLevel.M;
+            m中等纠错15ToolStripMenuItem.Checked = true;
+            q较高容错25ToolStripMenuItem.Checked = false;
+            h精密容错30ToolStripMenuItem.Checked = false;
+            l低纠错7ToolStripMenuItem.Checked = false;
+        }
+
+        private void q较高容错25ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eccLevel = ECCLevel.Q;
+            m中等纠错15ToolStripMenuItem.Checked = false;
+            q较高容错25ToolStripMenuItem.Checked = true;
+            h精密容错30ToolStripMenuItem.Checked = false;
+            l低纠错7ToolStripMenuItem.Checked = false;
+        }
+
+        private void h精密容错30ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eccLevel = ECCLevel.H;
+            m中等纠错15ToolStripMenuItem.Checked = false;
+            q较高容错25ToolStripMenuItem.Checked = false;
+            h精密容错30ToolStripMenuItem.Checked = true;
+            l低纠错7ToolStripMenuItem.Checked = false;
         }
     }
 

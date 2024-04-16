@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
@@ -117,7 +118,9 @@ namespace Get_Your_QR_Code
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("加密方式可用于保护你的设备与路由器免遭攻击与威胁。\n在你输入密码后，将启用该选择框，你可以选择任意一种加密方式保护你的网络安全。\n- WEP ：基础加密保护，出于潜在被攻破可能，建议非必要切勿选择。\n- WPA/WPA2-Personal ：为个人或家庭用户提供进阶加密保护，也是当今路由器的首选加密方式。\n- WPA/WPA2-Enterprise ：为企业用户提供进阶加密保护。\n- WPA3 ：为个人用户提供高级进阶加密保护。", "帮助",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("加密方式可用于保护你的设备与路由器免遭攻击与威胁。\n在你输入密码后，将启用该选择框，你可以选择任意一种加密方式保护你的网络安全。\n- WEP ：基础加密保护，出于潜在被攻破可能，建议非必要切勿选择。\n- WPA/WPA2-Personal ：为个人或家庭用户提供进阶加密保护，也是当今路由器的首选加密方式。\n- WPA/WPA2-Enterprise ：为企业用户提供进阶加密保护。\n- WPA3 ：为个人用户提供高级进阶加密保护。", "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
     }
 }

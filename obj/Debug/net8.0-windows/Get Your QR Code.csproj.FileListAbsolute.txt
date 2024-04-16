@@ -19,3 +19,13 @@ D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.cspro
 D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your.C282F936.Up2Date
 D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.Properties.Resources.resources
 D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.MIT_Lisence.resources
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\zxing.dll
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\Interop.WMPLib.dll
+D:\desktop\1331\Get Your QR Code\bin\Debug\net8.0-windows\AxInterop.WMPLib.dll
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Interop.WMPLib.dll
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\AxInterop.WMPLib.dll
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.csproj.ResolveComReference.cache
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.MouldSpawn_WLAN.resources
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.StartGrapicingPage.resources
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get_Your_QR_Code.UpdateLog.resources
+D:\desktop\1331\Get Your QR Code\obj\Debug\net8.0-windows\Get Your QR Code.sourcelink.json

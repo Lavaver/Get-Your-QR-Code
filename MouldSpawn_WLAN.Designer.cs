@@ -34,7 +34,6 @@
             label3 = new Label();
             WLANTextboxPASSWORD = new TextBox();
             label4 = new Label();
-            label7 = new Label();
             SpawnWLANQRCodeBtn = new Button();
             label5 = new Label();
             comboBox1 = new ComboBox();
@@ -74,7 +73,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft YaHei UI", 20F);
             label3.ForeColor = SystemColors.AppWorkspace;
-            label3.Location = new Point(38, 184);
+            label3.Location = new Point(38, 193);
             label3.Name = "label3";
             label3.Size = new Size(88, 45);
             label3.TabIndex = 3;
@@ -82,7 +81,7 @@
             // 
             // WLANTextboxPASSWORD
             // 
-            WLANTextboxPASSWORD.Location = new Point(51, 279);
+            WLANTextboxPASSWORD.Location = new Point(51, 286);
             WLANTextboxPASSWORD.Name = "WLANTextboxPASSWORD";
             WLANTextboxPASSWORD.PlaceholderText = "输入网络密码，若无密码可直接留白。密码为隐藏状态，只需确保输入正确即可";
             WLANTextboxPASSWORD.Size = new Size(543, 27);
@@ -92,23 +91,15 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(47, 247);
+            label4.Location = new Point(47, 254);
             label4.Name = "label4";
             label4.Size = new Size(69, 20);
             label4.TabIndex = 4;
             label4.Text = "网络密码";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(51, 491);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 20);
-            label7.TabIndex = 9;
-            // 
             // SpawnWLANQRCodeBtn
             // 
-            SpawnWLANQRCodeBtn.Location = new Point(578, 540);
+            SpawnWLANQRCodeBtn.Location = new Point(572, 458);
             SpawnWLANQRCodeBtn.Name = "SpawnWLANQRCodeBtn";
             SpawnWLANQRCodeBtn.Size = new Size(190, 61);
             SpawnWLANQRCodeBtn.TabIndex = 11;
@@ -119,7 +110,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(47, 332);
+            label5.Location = new Point(47, 339);
             label5.Name = "label5";
             label5.Size = new Size(69, 20);
             label5.TabIndex = 12;
@@ -130,7 +121,7 @@
             comboBox1.Enabled = false;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "WEP", "WPA/WPA2-Personal", "WPA/WPA2-Enterprise", "WPA3" });
-            comboBox1.Location = new Point(51, 371);
+            comboBox1.Location = new Point(51, 378);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(232, 28);
             comboBox1.TabIndex = 13;
@@ -139,7 +130,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(300, 374);
+            linkLabel1.Location = new Point(300, 381);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(69, 20);
             linkLabel1.TabIndex = 14;
@@ -151,12 +142,11 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 624);
+            ClientSize = new Size(800, 555);
             Controls.Add(linkLabel1);
             Controls.Add(comboBox1);
             Controls.Add(label5);
             Controls.Add(SpawnWLANQRCodeBtn);
-            Controls.Add(label7);
             Controls.Add(WLANTextboxPASSWORD);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -182,7 +172,6 @@
         private Label label3;
         private TextBox WLANTextboxPASSWORD;
         private Label label4;
-        private Label label7;
         private Button SpawnWLANQRCodeBtn;
         private Label label5;
         private ComboBox comboBox1;
