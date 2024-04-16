@@ -577,6 +577,7 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
+            
             Text = "获取你的二维码";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();

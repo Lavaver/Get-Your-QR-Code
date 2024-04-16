@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("CopyRight © Lavaver 2024")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.5.0.7512")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.5.0.7512+4d209194f63fa437fe70f80f3f36f55ea535715a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.5.0.7512+b4d7f5b47de3d24e29892441e6328787fcf9e54b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Get Your QR Code")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Get Your QR Code")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.5.0.7512")]

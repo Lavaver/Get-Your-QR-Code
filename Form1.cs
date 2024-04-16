@@ -10,6 +10,8 @@ namespace Get_Your_QR_Code
     {
         private ECCLevel eccLevel;
 
+        private bool generatingQRCode = false; // 标记生成二维码任务是否正在进行中
+
         private int ChunkSize = 500; // 设置块大小
 
         private string cacheFilePath;
@@ -35,6 +37,8 @@ namespace Get_Your_QR_Code
 
             // 在窗体加载时检查是否存在缓存文件，并加载内容到文本框
             this.Load += Form1_Load;
+
+            this.FormClosing += Form1_Closing; // 手动绑定 Closing 事件
 
             eccLevel = ECCLevel.L;
 
@@ -170,8 +174,10 @@ namespace Get_Your_QR_Code
             // 如果用户点击了确定按钮
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+
                 try
                 {
+
                     // 获取所选文件的路径
                     string selectedImagePath = openFileDialog.FileName;
 
@@ -183,6 +189,7 @@ namespace Get_Your_QR_Code
                     // 如果用户点击了确定按钮
                     if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                     {
+                        generatingQRCode = true;
                         string qrCodeFolderPath = folderBrowserDialog.SelectedPath;
 
                         StartGrapicingPage f3 = new StartGrapicingPage();
@@ -212,6 +219,8 @@ namespace Get_Your_QR_Code
                             QRCodeStatus.Text = $"生成成功。分块二维码文件已保存在所选位置";
                         }));
 
+                        generatingQRCode = false;
+
                         MessageBox.Show($"生成成功。分块二维码文件已保存在所选位置", "渲染任务已全部完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -223,6 +232,8 @@ namespace Get_Your_QR_Code
                         {
                             try
                             {
+                                generatingQRCode = true;
+
                                 StartGrapicingPage f3 = new StartGrapicingPage();
                                 f3.Show();
 
@@ -262,10 +273,13 @@ namespace Get_Your_QR_Code
                                     QRCodeStatus.Text = $"生成成功。分块二维码文件已保存在软件目录下的 /QRCode_Packs_[日期] 文件夹下";
                                 }));
 
+                                generatingQRCode = false;
+
                                 MessageBox.Show($"生成成功。分块二维码文件已保存在软件目录下的 {qrCodeFolderPath} 文件夹下", "渲染任务已全部完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception ex)
                             {
+                                generatingQRCode = false;
                                 // 将异常信息记录到日志文件
                                 File.AppendAllText("Exception.log", "\r\n" + "--- 引发异常的上一位置中堆栈日志的末尾 ---\n" + ex);
                                 QRCodeStatus.Text = "生成失败。引发异常的堆栈日志已保存在软件目录下";
@@ -280,6 +294,7 @@ namespace Get_Your_QR_Code
                 }
                 catch (Exception ex)
                 {
+                    generatingQRCode = false;
                     // 将异常信息记录到日志文件
                     File.AppendAllText("Exception.log", "\r\n" + "--- 引发异常的上一位置中堆栈日志的末尾 ---\n" + ex);
                     QRCodeStatus.Text = "生成失败。引发异常的堆栈日志已保存在软件目录下";
@@ -400,11 +415,6 @@ namespace Get_Your_QR_Code
         private void 该选项的作用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("设置 Base64 区块大小可最大限度地缩短渲染时间和张数。\n设置的区块越大，在面对分辨率较高的图片时也能确保生成的每张二维码承载的信息量能最大限度地减少渲染张数和时间。", "使用说明", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void 创建ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -664,6 +674,26 @@ namespace Get_Your_QR_Code
             q较高容错25ToolStripMenuItem.Checked = false;
             h精密容错30ToolStripMenuItem.Checked = true;
             l低纠错7ToolStripMenuItem.Checked = false;
+        }
+
+        private async void Form1_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (generatingQRCode)
+            {
+                // 如果生成二维码任务正在进行中，弹出警告提示对话框
+                DialogResult result = MessageBox.Show("继续关闭软件会杀死渲染进程，你确定要继续关闭软件？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
+                {
+                    // 如果用户选择不关闭软件，取消关闭操作
+                    e.Cancel = true;
+                }
+                else
+                {
+                    // 如果用户选择关闭软件，继续执行关闭操作
+                    e.Cancel = false;
+                }
+            }
         }
     }
 
