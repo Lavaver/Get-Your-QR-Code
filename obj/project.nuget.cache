@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "i8TpU45fHUy4IdJNsXhEdJyEXiyxvBXhDMX9ISKzzzFNMEr84T9XY3Y9HZaNl7LAiZEckS6aMR1VaCeQbzeP9A==",
+  "dgSpecHash": "j7EO0rYdQcwtzZwHlTNXqzxQBch+3jFhMu8XUgoGBQNuh13AbXx9/qNwVbXmUcDdQVZUsIVigb9hLVlah7glXA==",
   "success": true,
   "projectFilePath": "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vvv\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\vvv\\.nuget\\packages\\opencvsharp4\\4.9.0.20240103\\opencvsharp4.4.9.0.20240103.nupkg.sha512",
+    "C:\\Users\\vvv\\.nuget\\packages\\opencvsharp4.runtime.win\\4.9.0.20240103\\opencvsharp4.runtime.win.4.9.0.20240103.nupkg.sha512",
+    "C:\\Users\\vvv\\.nuget\\packages\\opencvsharp4.windows\\4.9.0.20240103\\opencvsharp4.windows.4.9.0.20240103.nupkg.sha512",
     "C:\\Users\\vvv\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\vvv\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\vvv\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\vvv\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\vvv\\.nuget\\packages\\zxing.net\\0.16.9\\zxing.net.0.16.9.nupkg.sha512"
   ],
   "logs": []

@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj": {
-      "version": "2.5.0.7512",
+      "version": "3.0.0.8000",
       "restore": {
         "projectUniqueName": "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj",
         "projectName": "Get Your QR Code",
@@ -50,6 +50,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "OpenCvSharp4.Windows": {
+              "target": "Package",
+              "version": "[4.9.0.20240103, )"
+            },
             "QRCoder": {
               "target": "Package",
               "version": "[1.4.3, )"

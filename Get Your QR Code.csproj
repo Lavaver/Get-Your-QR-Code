@@ -13,8 +13,9 @@
     <PackageIcon>icons-192(1).png</PackageIcon>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <UseWPF>False</UseWPF>
-    <FileVersion>2.5.0.7512</FileVersion>
-    <Version>2.5.0.7512</Version>
+    <FileVersion>3.0.0.8000</FileVersion>
+    <Version>3.0.0.8000</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.9.0.20240103" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
   </ItemGroup>

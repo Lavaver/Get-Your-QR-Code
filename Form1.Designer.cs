@@ -59,6 +59,7 @@
             toolStrip1 = new ToolStrip();
             tabPage3 = new TabPage();
             groupBox3 = new GroupBox();
+            button1 = new Button();
             button3 = new Button();
             label13 = new Label();
             label12 = new Label();
@@ -81,6 +82,12 @@
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             tabControl1 = new TabControl();
+            tabPage2 = new TabPage();
+            button2 = new Button();
+            label1 = new Label();
+            groupBox4 = new GroupBox();
+            pictureBox3 = new PictureBox();
+            textBox2 = new TextBox();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             tabPage3.SuspendLayout();
@@ -91,6 +98,9 @@
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // statusStrip1
@@ -330,6 +340,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(button1);
             groupBox3.Controls.Add(button3);
             groupBox3.Controls.Add(label13);
             groupBox3.Controls.Add(label12);
@@ -339,6 +350,16 @@
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "开源许可证";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(386, 74);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 29);
+            button1.TabIndex = 6;
+            button1.Text = "开源库许可证";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button3
             // 
@@ -364,9 +385,9 @@
             label12.AutoSize = true;
             label12.Location = new Point(24, 37);
             label12.Name = "label12";
-            label12.Size = new Size(270, 20);
+            label12.Size = new Size(195, 20);
             label12.TabIndex = 2;
-            label12.Text = "本软件及开源库均遵循 MIT 许可证协议";
+            label12.Text = "本软件遵循 MIT 许可证协议";
             // 
             // groupBox2
             // 
@@ -382,7 +403,7 @@
             // 
             // UpdateLogBtn
             // 
-            UpdateLogBtn.Location = new Point(523, 111);
+            UpdateLogBtn.Location = new Point(523, 112);
             UpdateLogBtn.Name = "UpdateLogBtn";
             UpdateLogBtn.Size = new Size(131, 29);
             UpdateLogBtn.TabIndex = 5;
@@ -417,7 +438,7 @@
             label9.Name = "label9";
             label9.Size = new Size(170, 36);
             label9.TabIndex = 6;
-            label9.Text = "Build 7512";
+            label9.Text = "Build 8000";
             // 
             // label8
             // 
@@ -428,7 +449,7 @@
             label8.Name = "label8";
             label8.Size = new Size(262, 53);
             label8.TabIndex = 5;
-            label8.Text = "Version 2.5";
+            label8.Text = "Version 3.0";
             // 
             // label7
             // 
@@ -556,6 +577,7 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(0, 28);
             tabControl1.Name = "tabControl1";
@@ -563,10 +585,70 @@
             tabControl1.Size = new Size(800, 697);
             tabControl1.TabIndex = 1;
             // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(button2);
+            tabPage2.Controls.Add(label1);
+            tabPage2.Controls.Add(groupBox4);
+            tabPage2.Controls.Add(textBox2);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Size = new Size(792, 664);
+            tabPage2.TabIndex = 3;
+            tabPage2.Text = "解析二维码";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(562, 81);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 9;
+            button2.Text = "选择图片";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(131, 85);
+            label1.Name = "label1";
+            label1.Size = new Size(294, 20);
+            label1.TabIndex = 8;
+            label1.Text = "点击右侧按钮选择图片，程序自动开始解析";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(pictureBox3);
+            groupBox4.Location = new Point(51, 135);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(691, 495);
+            groupBox4.TabIndex = 7;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "待解析内容预览";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Location = new Point(6, 26);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(679, 473);
+            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(131, 35);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "反馈内容";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(525, 27);
+            textBox2.TabIndex = 6;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(800, 750);
             Controls.Add(tabControl1);
@@ -577,7 +659,6 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            
             Text = "获取你的二维码";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
@@ -595,6 +676,10 @@
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -653,5 +738,12 @@
         private ToolStripMenuItem m中等纠错15ToolStripMenuItem;
         private ToolStripMenuItem q较高容错25ToolStripMenuItem;
         private ToolStripMenuItem h精密容错30ToolStripMenuItem;
+        private TabPage tabPage2;
+        private GroupBox groupBox4;
+        public PictureBox pictureBox3;
+        private TextBox textBox2;
+        private Button button2;
+        private Label label1;
+        private Button button1;
     }
 }

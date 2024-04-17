@@ -2,12 +2,18 @@ using QRCoder;
 using System.IO;
 using System.Drawing.Imaging;
 using static QRCoder.QRCodeGenerator;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using OpenCvSharp;
+using ZXing;
+using ZXing.QrCode;
 
 namespace Get_Your_QR_Code
 {
 
     public partial class Form1 : Form
     {
+
         private ECCLevel eccLevel;
 
         private bool generatingQRCode = false; // 标记生成二维码任务是否正在进行中
@@ -42,10 +48,13 @@ namespace Get_Your_QR_Code
 
             eccLevel = ECCLevel.L;
 
+
+
             QRCodeStatus.Text = "就绪";
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
             // 检查缓存文件所在文件夹是否存在文件
             string cacheFolder = Path.GetDirectoryName(cacheFilePath);
             string[] filesInFolder = Directory.GetFiles(cacheFolder);
@@ -450,7 +459,7 @@ namespace Get_Your_QR_Code
                 {
                     pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
                     Graphics g = this.CreateGraphics();
-                    g.DrawImage(bmp, new Point(0, 0));
+                    g.DrawImage(bmp, new System.Drawing.Point(0, 0));
 
                     // 生成随机文件名
                     string fileName = GenerateRandomFileName() + ".png";
@@ -678,6 +687,7 @@ namespace Get_Your_QR_Code
 
         private async void Form1_Closing(object sender, FormClosingEventArgs e)
         {
+
             if (generatingQRCode)
             {
                 // 如果生成二维码任务正在进行中，弹出警告提示对话框
@@ -694,6 +704,55 @@ namespace Get_Your_QR_Code
                     e.Cancel = false;
                 }
             }
+        }
+
+        private async Task U1()
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "图像文件|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件|*.*";
+            openFileDialog.Title = "选择二维码图片";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFilePath = openFileDialog.FileName;
+                Mat image = Cv2.ImRead(selectedFilePath, ImreadModes.Grayscale);
+                if (!image.Empty())
+                {
+                    // 加载图像文件并显示到 pictureBox3
+                    Image selectedImage = Image.FromFile(selectedFilePath);
+                    pictureBox3.Image = selectedImage;
+
+                    QRCodeDetector detector = new QRCodeDetector();
+                    Point2f[] points;
+                    string result = detector.DetectAndDecode(image, out points);
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        textBox2.Text = result;
+                        QRCodeStatus.Text = "成功解析";
+                    }
+                    else
+                    {
+                        QRCodeStatus.Text = "失败的操作";
+                        MessageBox.Show("未能解析二维码。", "解析失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Open_Source_Lib_Attributions f2 = new Open_Source_Lib_Attributions();
+            f2.Show();
         }
     }
 
