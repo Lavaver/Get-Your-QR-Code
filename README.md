@@ -14,7 +14,7 @@
 
 - 模板制作二维码
 
-- 使用摄像头反扫二维码并解析
+- ~~使用摄像头反扫二维码并解析~~（本地二维码文件解析）
 
 ## 图片制作二维码
 
@@ -24,124 +24,14 @@
 
 使用模板快速生成特定格式的二维码，省时省力
 
-## 使用摄像头反扫二维码并解析
+## 使用本地二维码文件解析
 
-哈哈你被骗了！
+摄像头的问题已经很长时间了
 
-We're no strangers to love
+众所周知：**懒是第一生产力**
 
-You know the rules and so do I (do I)
+所以，我把摄像头扫描二维码给砍啦（喜）
 
-A full commitment's what I'm thinking of
+你现在可以上传本地文件或者网络驱动器/OneDrive（如果你有）的二维码进行解析
 
-You wouldn't get this from any other guy
-
-I just wanna tell you how I'm feeling
-
-Gotta make you understand
-
-Never gonna give you up
-
-Never gonna let you down
-
-Never gonna run around and desert you
-
-Never gonna make you cry
-
-Never gonna say goodbye
-
-Never gonna tell a lie and hurt you
-
-维诺 · 理查德 · 汪苏泷（We've known each other for so long）
-
-Your heart's been aching, but you're too shy to say it (say it)
-
-Inside, we both know what's been going on (going on)
-
-We know the game and we're gonna play it
-
-And if you ask me how I'm feeling
-
-Don't tell me you're too blind to see
-
-Never gonna give you up
-
-Never gonna let you down
-
-Never gonna run around and desert you
-
-Never gonna make you cry
-
-Never gonna say goodbye
-
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-
-Never gonna let you down
-
-Never gonna run around and desert you
-
-Never gonna make you cry
-
-Never gonna say goodbye
-
-Never gonna tell a lie and hurt you
-
-(Ooh, give you up)
-
-(Ooh, give you up)
-
-(Ooh) Never gonna give, never gonna give (give you up)
-
-(Ooh) Never gonna give, never gonna give (give you up)
-
-We've known each other for so long
-
-Your heart's been aching, but you're too shy to say it (to say it)
-
-Inside, we both know what's been going on (going on)
-
-We know the game and we're gonna play it
-
-I just wanna tell you how I'm feeling
-
-Gotta make you understand
-
-Never gonna give you up
-
-Never gonna let you down
-
-Never gonna run around and desert you
-
-Never gonna make you cry
-
-Never gonna say goodbye
-
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-
-Never gonna let you down
-
-Never gonna run around and desert you
-
-Never gonna make you cry
-
-Never gonna say goodbye
-
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-
-Never gonna let you down
-
-Never gonna run around and desert you
-
-Never gonna make you cry
-
-Never gonna say goodbye
-
-Never gonna tell a lie and hurt you
-
-PS：你品，你细品（品味为啥这功能在这里突然被骗）
+（目前根据内容自动判断应该要做什么动作还没写）
