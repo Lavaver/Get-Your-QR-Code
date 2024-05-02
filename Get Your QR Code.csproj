@@ -8,13 +8,13 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Authors>Lavaver</Authors>
-    <Copyright>CopyRight © Lavaver 2024</Copyright>
+    <Copyright>CopyRight © Lavaver 2024 ，保留所有权利</Copyright>
     <PackageProjectUrl>https://github.com/Lavaver/Get-Your-QR-Code</PackageProjectUrl>
     <PackageIcon>icons-192(1).png</PackageIcon>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <UseWPF>False</UseWPF>
-    <FileVersion>3.0.0.8000</FileVersion>
-    <Version>3.0.0.8000</Version>
+    <FileVersion>3.2.0.8624</FileVersion>
+    <Version>3.3.0.8624</Version>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
@@ -30,6 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="OpenCvSharp4.Windows" Version="4.9.0.20240103" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />

@@ -51,12 +51,14 @@
             模板生成ToolStripMenuItem = new ToolStripMenuItem();
             带有WLAN信息的二维码ToolStripMenuItem = new ToolStripMenuItem();
             带有Unix时间戳的二维码ToolStripMenuItem = new ToolStripMenuItem();
+            带有UUID信息的二维码ToolStripMenuItem = new ToolStripMenuItem();
             eCC纠错级别ToolStripMenuItem = new ToolStripMenuItem();
             l低纠错7ToolStripMenuItem = new ToolStripMenuItem();
             m中等纠错15ToolStripMenuItem = new ToolStripMenuItem();
             q较高容错25ToolStripMenuItem = new ToolStripMenuItem();
             h精密容错30ToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
+            toolStripButton1 = new ToolStripButton();
             tabPage3 = new TabPage();
             groupBox3 = new GroupBox();
             button1 = new Button();
@@ -251,7 +253,7 @@
             // 
             // 模板生成ToolStripMenuItem
             // 
-            模板生成ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 带有WLAN信息的二维码ToolStripMenuItem, 带有Unix时间戳的二维码ToolStripMenuItem });
+            模板生成ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 带有WLAN信息的二维码ToolStripMenuItem, 带有Unix时间戳的二维码ToolStripMenuItem, 带有UUID信息的二维码ToolStripMenuItem });
             模板生成ToolStripMenuItem.Name = "模板生成ToolStripMenuItem";
             模板生成ToolStripMenuItem.Size = new Size(241, 26);
             模板生成ToolStripMenuItem.Text = "模板生成";
@@ -270,6 +272,13 @@
             带有Unix时间戳的二维码ToolStripMenuItem.Size = new Size(267, 26);
             带有Unix时间戳的二维码ToolStripMenuItem.Text = "带有 Unix 时间戳的二维码";
             带有Unix时间戳的二维码ToolStripMenuItem.Click += 带有Unix时间戳的二维码ToolStripMenuItem_Click;
+            // 
+            // 带有UUID信息的二维码ToolStripMenuItem
+            // 
+            带有UUID信息的二维码ToolStripMenuItem.Name = "带有UUID信息的二维码ToolStripMenuItem";
+            带有UUID信息的二维码ToolStripMenuItem.Size = new Size(267, 26);
+            带有UUID信息的二维码ToolStripMenuItem.Text = "带有 UUID 信息的二维码";
+            带有UUID信息的二维码ToolStripMenuItem.Click += 带有UUID信息的二维码ToolStripMenuItem_Click;
             // 
             // eCC纠错级别ToolStripMenuItem
             // 
@@ -312,12 +321,23 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripDropDownButton2 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripDropDownButton2, toolStripButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(191, 24);
+            toolStripButton1.Text = "上报问题至 GitHub Issues";
+            toolStripButton1.ToolTipText = "上报问题至 GitHub Issues ，并获得第一时间反馈";
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // tabPage3
             // 
@@ -438,7 +458,7 @@
             label9.Name = "label9";
             label9.Size = new Size(170, 36);
             label9.TabIndex = 6;
-            label9.Text = "Build 8000";
+            label9.Text = "Build 8624";
             // 
             // label8
             // 
@@ -449,7 +469,7 @@
             label8.Name = "label8";
             label8.Size = new Size(262, 53);
             label8.TabIndex = 5;
-            label8.Text = "Version 3.0";
+            label8.Text = "Version 3.3";
             // 
             // label7
             // 
@@ -745,5 +765,7 @@
         private Button button2;
         private Label label1;
         private Button button1;
+        private ToolStripMenuItem 带有UUID信息的二维码ToolStripMenuItem;
+        private ToolStripButton toolStripButton1;
     }
 }

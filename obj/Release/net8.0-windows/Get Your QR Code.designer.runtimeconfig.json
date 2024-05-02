@@ -13,8 +13,7 @@
     ],
     "additionalProbingPaths": [
       "C:\\Users\\vvv\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\vvv\\.nuget\\packages",
-      "D:\\新建文件夹 (18)\\NuGetPackages"
+      "C:\\Users\\vvv\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,

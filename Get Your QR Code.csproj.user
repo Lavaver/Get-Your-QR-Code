@@ -7,6 +7,9 @@
     <Compile Update="MIT_Lisence.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MouldSpawn_UUID.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MouldSpawn_WLAN.cs">
       <SubType>Form</SubType>
     </Compile>

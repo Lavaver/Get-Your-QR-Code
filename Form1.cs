@@ -1,12 +1,8 @@
 using QRCoder;
-using System.IO;
 using System.Drawing.Imaging;
 using static QRCoder.QRCodeGenerator;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using OpenCvSharp;
-using ZXing;
-using ZXing.QrCode;
+using System.Diagnostics;
 
 namespace Get_Your_QR_Code
 {
@@ -20,9 +16,10 @@ namespace Get_Your_QR_Code
 
         private int ChunkSize = 500; // 设置块大小
 
-        private string cacheFilePath;
+        private readonly string cacheFilePath;
 
-        private string folderPath = "\\PageCachedFile";
+        #region 初始化窗体
+
         public Form1()
         {
             InitializeComponent();
@@ -52,6 +49,9 @@ namespace Get_Your_QR_Code
 
             QRCodeStatus.Text = "就绪";
         }
+
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -98,7 +98,12 @@ namespace Get_Your_QR_Code
             }
         }
 
+        #endregion
 
+        /// <summary>
+        /// 根据输入内容生成二维码
+        /// </summary>
+        /// <param name="text">内容（字符串）</param>
         private void GenerateQRCode(string text)
         {
             try
@@ -107,9 +112,9 @@ namespace Get_Your_QR_Code
                 // 根据内容长度确定二维码大小
                 int size = CalculateQRCodeSize(text.Length);
 
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeGenerator qrGenerator = new();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, eccLevel);
-                QRCode qrCode = new QRCode(qrCodeData);
+                QRCode qrCode = new(qrCodeData);
                 Bitmap qrCodeImage = qrCode.GetGraphic(size); // 设置二维码大小
 
                 pictureBox1.Image = qrCodeImage;
@@ -124,9 +129,13 @@ namespace Get_Your_QR_Code
 
         }
 
-        private int CalculateQRCodeSize(int contentLength)
+        /// <summary>
+        /// 根据内容长度来确定二维码的大小
+        /// </summary>
+        /// <param name="contentLength">字符串长度</param>
+        /// <returns>二维码大小（缩放倍率）</returns>
+        private static int CalculateQRCodeSize(int contentLength)
         {
-            // 根据内容长度来确定二维码的大小
             if (contentLength <= 50)
             {
                 return 10;
@@ -148,20 +157,15 @@ namespace Get_Your_QR_Code
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("目前还在攻克这个问题啦...\n敬请期待", "功能未完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            MIT_Lisence f2 = new MIT_Lisence();
+            MIT_Lisence f2 = new();
             f2.Show();
         }
 
         private void 关闭选项ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void 重置底部状态栏ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,16 +173,23 @@ namespace Get_Your_QR_Code
             QRCodeStatus.Text = "就绪";
         }
 
+
+        /// <summary>
+        /// 上传任意图片并分块转换为二维码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">异常</param>
         private async void UpLoadPictureBtn_Click_1(object sender, EventArgs e)
         {
             // 创建一个 OpenFileDialog 对象
-            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
-
-            // 设置文件对话框的属性
-            openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "图片文件|*.jpg;*.jpeg;*.png;*.gif";
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.RestoreDirectory = true;
+            OpenFileDialog openFileDialog = new()
+            {
+                // 设置文件对话框的属性
+                InitialDirectory = "c:\\",
+                Filter = "图片文件|*.jpg;*.jpeg;*.png;*.gif",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
 
             // 如果用户点击了确定按钮
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -191,9 +202,11 @@ namespace Get_Your_QR_Code
                     string selectedImagePath = openFileDialog.FileName;
 
                     // 弹出文件夹选择对话框
-                    FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                    folderBrowserDialog.Description = "请选择保存位置";
-                    folderBrowserDialog.ShowNewFolderButton = true;
+                    FolderBrowserDialog folderBrowserDialog = new()
+                    {
+                        Description = "请选择保存位置",
+                        ShowNewFolderButton = true
+                    };
 
                     // 如果用户点击了确定按钮
                     if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -201,7 +214,7 @@ namespace Get_Your_QR_Code
                         generatingQRCode = true;
                         string qrCodeFolderPath = folderBrowserDialog.SelectedPath;
 
-                        StartGrapicingPage f3 = new StartGrapicingPage();
+                        StartGrapicingPage f3 = new();
                         f3.Show();
 
                         QRCodeStatus.Text = "执行生成操作";
@@ -243,7 +256,7 @@ namespace Get_Your_QR_Code
                             {
                                 generatingQRCode = true;
 
-                                StartGrapicingPage f3 = new StartGrapicingPage();
+                                StartGrapicingPage f3 = new();
                                 f3.Show();
 
                                 QRCodeStatus.Text = "执行生成操作";
@@ -311,25 +324,30 @@ namespace Get_Your_QR_Code
             }
         }
 
-        // 将图片转换为Base64编码（异步版本）
-        private async Task<string> ConvertImageToBase64Async(string imagePath)
+        /// <summary>
+        /// 将图片转换为Base64编码（异步版本）
+        /// </summary>
+        /// <param name="imagePath">图片位置</param>
+        /// <returns>Base64 编码</returns>
+        private static async Task<string> ConvertImageToBase64Async(string imagePath)
         {
             return await Task.Run(() =>
             {
-                using (System.Drawing.Image image = System.Drawing.Image.FromFile(imagePath))
-                {
-                    using (MemoryStream m = new MemoryStream())
-                    {
-                        image.Save(m, image.RawFormat);
-                        byte[] imageBytes = m.ToArray();
-                        return Convert.ToBase64String(imageBytes);
-                    }
-                }
+                using Image image = Image.FromFile(imagePath);
+                using MemoryStream m = new();
+                image.Save(m, image.RawFormat);
+                byte[] imageBytes = m.ToArray();
+                return Convert.ToBase64String(imageBytes);
             });
         }
 
-        // 将Base64字符串分成指定大小的块
-        private string[] ChunkBase64String(string base64String, int chunkSize)
+        /// <summary>
+        /// 将Base64字符串分成指定大小的块
+        /// </summary>
+        /// <param name="base64String">Base64 编码</param>
+        /// <param name="chunkSize">块大小</param>
+        /// <returns>分块后的 Base64 编码片段（主要是这个库一次性用这么长的编码后字符串运行时会直接懵逼然后向用户*友好的*抛出溢出异常，C# 还好有抛出能定位问题，隔壁 C++ 直接不抛了你看着办，反正我只抛个 blahblah.exe 已停止运行，要是没有日志库那问题你慢慢找去吧）</returns>
+        private static string[] ChunkBase64String(string base64String, int chunkSize)
         {
             int numChunks = (int)Math.Ceiling((double)base64String.Length / chunkSize);
             string[] chunks = new string[numChunks];
@@ -351,9 +369,9 @@ namespace Get_Your_QR_Code
         {
             await Task.Run(() =>
             {
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeGenerator qrGenerator = new();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(data, eccLevel);
-                QRCode qrCode = new QRCode(qrCodeData);
+                QRCode qrCode = new(qrCodeData);
                 Bitmap qrCodeImage = qrCode.GetGraphic(20);
                 qrCodeImage.Save(outputFileName, System.Drawing.Imaging.ImageFormat.Png);
             });
@@ -363,6 +381,8 @@ namespace Get_Your_QR_Code
         {
             MessageBox.Show("选择文件后，程序先将图片进行 Base64 转换，然后将转换后字符串进行分块操作\n完成后将逐个渲染每个区块对应的二维码并输出到软件目录下的 /QRCode_Packs_[日期] 文件夹下\n这个功能用来传输密报或许不错，但如果想要用这种方式来传输比较大的图片的话...\n...那你得做好不间断扫码、合并与转换三重心理打击的准备（", "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        #region 对菜单项的设置&定义：分块操作
 
         private void 区块二维码体积最小但生成量和占用呈几何倍增ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -426,6 +446,13 @@ namespace Get_Your_QR_Code
             MessageBox.Show("设置 Base64 区块大小可最大限度地缩短渲染时间和张数。\n设置的区块越大，在面对分辨率较高的图片时也能确保生成的每张二维码承载的信息量能最大限度地减少渲染张数和时间。", "使用说明", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        #endregion
+
+        public void DisplayQRCodeImage(Bitmap qrCodeImage)
+        {
+            pictureBox1.Image = qrCodeImage;
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
@@ -438,10 +465,10 @@ namespace Get_Your_QR_Code
                 QRCodeStatus.Text = "失败的操作";
             }
         }
-        private string GenerateRandomFileName()
+        private static string GenerateRandomFileName()
         {
             // 生成随机文件名，由英文和数字组成
-            Random random = new Random();
+            Random random = new();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, 8)
               .Select(s => s[random.Next(s.Length)]).ToArray());
@@ -455,7 +482,7 @@ namespace Get_Your_QR_Code
             }
             else
             {
-                using (Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height))
+                using (Bitmap bmp = new(pictureBox1.Width, pictureBox1.Height))
                 {
                     pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
                     Graphics g = this.CreateGraphics();
@@ -485,15 +512,17 @@ namespace Get_Your_QR_Code
 
         private void 带有WLAN信息的二维码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MouldSpawn_WLAN f4 = new MouldSpawn_WLAN();
+            MouldSpawn_WLAN f4 = new();
             f4.Show();
         }
 
         private void UpdateLogBtn_Click(object sender, EventArgs e)
         {
-            UpdateLog f5 = new UpdateLog();
+            UpdateLog f5 = new();
             f5.Show();
         }
+
+        #region 缓存文件操作
 
         private void 保存键入内容至缓存文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -571,6 +600,8 @@ namespace Get_Your_QR_Code
             }
         }
 
+        #endregion
+
         private void 其他路径ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image == null)
@@ -582,32 +613,30 @@ namespace Get_Your_QR_Code
                 try
                 {
                     // 创建一个 SaveFileDialog 对象
-                    using (System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog())
+                    using SaveFileDialog saveFileDialog = new();
+                    saveFileDialog.Filter = "PNG 图像文件 (*.png)|*.png";
+                    saveFileDialog.Title = "选择保存位置";
+                    saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    saveFileDialog.RestoreDirectory = true;
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        saveFileDialog.Filter = "PNG 图像文件 (*.png)|*.png";
-                        saveFileDialog.Title = "选择保存位置";
-                        saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                        saveFileDialog.RestoreDirectory = true;
+                        // 获取用户选择的保存路径
+                        string filePath = saveFileDialog.FileName;
 
-                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        using (Bitmap bmp = new(pictureBox1.Width, pictureBox1.Height))
                         {
-                            // 获取用户选择的保存路径
-                            string filePath = saveFileDialog.FileName;
+                            pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
 
-                            using (Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height))
-                            {
-                                pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
-
-                                // 保存图像
-                                bmp.Save(filePath, ImageFormat.Png);
-                            }
-
-                            QRCodeStatus.Text = $"成功的操作。渲染后二维码已保存至：{filePath}";
+                            // 保存图像
+                            bmp.Save(filePath, ImageFormat.Png);
                         }
-                        else
-                        {
-                            QRCodeStatus.Text = "用户取消了保存操作";
-                        }
+
+                        QRCodeStatus.Text = $"成功的操作。渲染后二维码已保存至：{filePath}";
+                    }
+                    else
+                    {
+                        QRCodeStatus.Text = "用户取消了保存操作";
                     }
                 }
                 catch (Exception ex)
@@ -617,6 +646,7 @@ namespace Get_Your_QR_Code
             }
         }
 
+        #region 模板生成：带有Unix时间戳的二维码
         private void 带有Unix时间戳的二维码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -628,9 +658,9 @@ namespace Get_Your_QR_Code
                 string timestampString = unixTimestamp.ToString();
 
                 // 创建二维码生成器对象
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeGenerator qrGenerator = new();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(timestampString, eccLevel);
-                QRCode qrCode = new QRCode(qrCodeData);
+                QRCode qrCode = new(qrCodeData);
 
                 // 将二维码转换为位图图像
                 Bitmap qrCodeImage = qrCode.GetGraphic(20);
@@ -647,6 +677,10 @@ namespace Get_Your_QR_Code
                 MessageBox.Show($"生成二维码时出现错误：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        #endregion
+
+        #region 对菜单项的设置&定义：ECC 操作
 
         private void l低纠错7ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -685,7 +719,9 @@ namespace Get_Your_QR_Code
             l低纠错7ToolStripMenuItem.Checked = false;
         }
 
-        private async void Form1_Closing(object sender, FormClosingEventArgs e)
+        #endregion
+
+        private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
 
             if (generatingQRCode)
@@ -706,21 +742,15 @@ namespace Get_Your_QR_Code
             }
         }
 
-        private async Task U1()
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        #region 文件逻辑：选择二维码
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "图像文件|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件|*.*";
-            openFileDialog.Title = "选择二维码图片";
+            OpenFileDialog openFileDialog = new()
+            {
+                Filter = "图像文件|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件|*.*",
+                Title = "选择二维码图片"
+            };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -732,11 +762,12 @@ namespace Get_Your_QR_Code
                     Image selectedImage = Image.FromFile(selectedFilePath);
                     pictureBox3.Image = selectedImage;
 
-                    QRCodeDetector detector = new QRCodeDetector();
-                    Point2f[] points;
-                    string result = detector.DetectAndDecode(image, out points);
+                    QRCodeDetector detector = new();
+                    string result = detector.DetectAndDecode(image, out _);
                     if (!string.IsNullOrEmpty(result))
                     {
+                        // 确保在识别二维码之前解析输出是空的
+                        textBox2.Text = null;
                         textBox2.Text = result;
                         QRCodeStatus.Text = "成功解析";
                     }
@@ -749,10 +780,46 @@ namespace Get_Your_QR_Code
             }
         }
 
+        #endregion
+
+        #region 显示新窗体
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Open_Source_Lib_Attributions f2 = new Open_Source_Lib_Attributions();
-            f2.Show();
+            Open_Source_Lib_Attributions 窗体 = new();
+            窗体.Show();
+        }
+
+        private void 带有UUID信息的二维码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MouldSpawn_UUID 窗体 = new(this);
+            窗体.Show();
+        }
+
+        #endregion
+
+
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            // 弹出确认消息框
+            DialogResult result = MessageBox.Show("感谢你为自由软件事业贡献一份力量，但在你提交 Issues 之前，本开发者需要与你确认一些事情：\n- 请确保你要提出的 Issues 未被提及过或需要优先处理\n- 非已被解决的问题（另外，如果你的软件版本和最新发行版不一致，也请您先升级然后再提交）\n- 如有可能，提供运行时或软件记录的一切异常日志包括文件（若无，请提供大致问题以便作者定位）\n- 如有可能，提供与之对应抛出异常的代码行、列数\n- 在 Issues 中提供该问题或特性的触发步骤\n若检查均无问题，你就可以继续，软件将打开相应 Web 页面", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // 尝试打开 URL
+                    Process.Start("explorer","https://github.com/Lavaver/Get-Your-QR-Code/issues/new");
+                }
+                catch (Exception ex)
+                {
+                    // 处理异常（例如，URL 无效或操作系统不支持）
+                    MessageBox.Show($"无法打开链接：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
+            
         }
     }
 

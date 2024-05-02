@@ -1,20 +1,37 @@
 ﻿using QRCoder;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Get_Your_QR_Code
 {
     public partial class MouldSpawn_WLAN : Form
     {
+        [DllImport("C:\\windows\\System32\\wlanapi.dll", SetLastError = true)]
+        public static extern uint WlanQueryInterface(
+        IntPtr hClientHandle,
+        [MarshalAs(UnmanagedType.LPStruct)] Guid pInterfaceGuid,
+        int OpCode,
+        IntPtr pReserved,
+        out uint pdwDataSize,
+        out IntPtr ppData,
+        IntPtr pReserved2
+    );
+
+        [DllImport("C:\\windows\\System32\\wlanapi.dll")]
+        public static extern void WlanFreeMemory(IntPtr pMemory);
+
+        [DllImport("C:\\windows\\System32\\wlanapi.dll")]
+        public static extern uint WlanOpenHandle(
+            uint dwClientVersion,
+            IntPtr pReserved,
+            out uint pdwNegotiatedVersion,
+            out IntPtr phClientHandle
+        );
+
+        [DllImport("C:\\windows\\System32\\wlanapi.dll")]
+        public static extern uint WlanCloseHandle(
+            IntPtr hClientHandle,
+            IntPtr pReserved
+        );
 
         public MouldSpawn_WLAN()
         {
@@ -121,6 +138,34 @@ namespace Get_Your_QR_Code
             MessageBox.Show("加密方式可用于保护你的设备与路由器免遭攻击与威胁。\n在你输入密码后，将启用该选择框，你可以选择任意一种加密方式保护你的网络安全。\n- WEP ：基础加密保护，出于潜在被攻破可能，建议非必要切勿选择。\n- WPA/WPA2-Personal ：为个人或家庭用户提供进阶加密保护，也是当今路由器的首选加密方式。\n- WPA/WPA2-Enterprise ：为企业用户提供进阶加密保护。\n- WPA3 ：为个人用户提供高级进阶加密保护。", "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void AutoGetSSIDBtn_Click(object sender, EventArgs e)
+        {
+            IntPtr hClientHandle;
+            uint dwResult = WlanOpenHandle(2, IntPtr.Zero, out _, out hClientHandle);
 
+            if (dwResult == 0)
+            {
+                uint pdwDataSize;
+                IntPtr ppData;
+                dwResult = WlanQueryInterface(hClientHandle, Guid.Empty, 6, IntPtr.Zero, out pdwDataSize, out ppData, IntPtr.Zero);
+
+                if (dwResult == 0)
+                {
+                    string ssid = Marshal.PtrToStringUni(ppData).Trim();
+                    WLANTextboxSSID.Text = ssid;
+                    WlanFreeMemory(ppData);
+                }
+                else
+                {
+                    MessageBox.Show($"在获取信息时出现 {dwResult} 错误。");
+                }
+
+                WlanCloseHandle(hClientHandle, IntPtr.Zero);
+            }
+            else
+            {
+                MessageBox.Show($"在获取信息时出现 {dwResult} 错误。");
+            }
+        }
     }
 }

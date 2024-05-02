@@ -38,6 +38,7 @@
             label5 = new Label();
             comboBox1 = new ComboBox();
             linkLabel1 = new LinkLabel();
+            AutoGetSSIDBtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -138,11 +139,22 @@
             linkLabel1.Text = "如何选择";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // AutoGetSSIDBtn
+            // 
+            AutoGetSSIDBtn.Location = new Point(340, 125);
+            AutoGetSSIDBtn.Name = "AutoGetSSIDBtn";
+            AutoGetSSIDBtn.Size = new Size(94, 29);
+            AutoGetSSIDBtn.TabIndex = 15;
+            AutoGetSSIDBtn.Text = "自动获取";
+            AutoGetSSIDBtn.UseVisualStyleBackColor = true;
+            AutoGetSSIDBtn.Click += AutoGetSSIDBtn_Click;
+            // 
             // MouldSpawn_WLAN
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 555);
+            Controls.Add(AutoGetSSIDBtn);
             Controls.Add(linkLabel1);
             Controls.Add(comboBox1);
             Controls.Add(label5);
@@ -176,5 +188,6 @@
         private Label label5;
         private ComboBox comboBox1;
         private LinkLabel linkLabel1;
+        private Button AutoGetSSIDBtn;
     }
 }

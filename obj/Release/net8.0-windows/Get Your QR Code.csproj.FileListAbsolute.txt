@@ -3,7 +3,6 @@ D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\Get Your QR Code.dep
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\Get Your QR Code.runtimeconfig.json
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\Get Your QR Code.dll
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\Get Your QR Code.pdb
-D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\QRCoder.dll
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get Your QR Code.csproj.AssemblyReference.cache
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.Form1.resources
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.MIT_Lisence.resources
@@ -20,13 +19,13 @@ D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\refint\Get Your QR C
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get Your QR Code.pdb
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get Your QR Code.genruntimeconfig.cache
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\ref\Get Your QR Code.dll
-D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\zxing.dll
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.StartGrapicingPage.resources
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.MouldSpawn_WLAN.resources
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.UpdateLog.resources
-D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\OpenCvSharp.dll
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\runtimes\win-x64\native\OpenCvSharpExtern.dll
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\runtimes\win-x64\native\opencv_videoio_ffmpeg490_64.dll
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\runtimes\win-x86\native\OpenCvSharpExtern.dll
 D:\desktop\1331\Get Your QR Code\bin\Release\net8.0-windows\runtimes\win-x86\native\opencv_videoio_ffmpeg490.dll
 D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.Open_Source_Lib_Attributions.resources
+D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get_Your_QR_Code.MouldSpawn_UUID.resources
+D:\desktop\1331\Get Your QR Code\obj\Release\net8.0-windows\Get Your QR Code.csproj.Fody.CopyLocal.cache

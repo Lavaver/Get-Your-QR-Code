@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj": {
-      "version": "3.0.0.8000",
+      "version": "3.3.0.8624",
       "restore": {
         "projectUniqueName": "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj",
         "projectName": "Get Your QR Code",
@@ -13,12 +13,8 @@
         "packagesPath": "C:\\Users\\vvv\\.nuget\\packages\\",
         "outputPath": "D:\\desktop\\1331\\Get Your QR Code\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\新建文件夹 (18)\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\vvv\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,6 +46,12 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Costura.Fody": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.7.0, )"
+            },
             "OpenCvSharp4.Windows": {
               "target": "Package",
               "version": "[4.9.0.20240103, )"
@@ -82,7 +84,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
