@@ -39,7 +39,7 @@
             richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(660, 565);
             richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "重磅更新 3.0\n---------------------------\n[+] 酝酿了好久咱终于把二维码识别功能搬上来啦，在此特别感谢 OpenCvSharp 库的支持！\n[=] 修复了一些问题\n";
+            richTextBox1.Text = "常规更新 3.4\n---------------------------\n[+] 新增 1 个增量功能";
             // 
             // UpdateLog
             // 
