@@ -1,4 +1,5 @@
 ﻿using QRCoder;
+using System.IO;
 
 namespace Get_Your_QR_Code
 {

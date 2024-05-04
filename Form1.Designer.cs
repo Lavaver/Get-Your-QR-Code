@@ -58,6 +58,10 @@
             q较高容错25ToolStripMenuItem = new ToolStripMenuItem();
             h精密容错30ToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
+            toolStripDropDownButton3 = new ToolStripDropDownButton();
+            自定义模板生成功能ToolStripMenuItem = new ToolStripMenuItem();
+            挂载模板生成动态库文件dllToolStripMenuItem = new ToolStripMenuItem();
+            卸载模板生成动态库文件ToolStripMenuItem = new ToolStripMenuItem();
             toolStripButton1 = new ToolStripButton();
             tabPage3 = new TabPage();
             groupBox3 = new GroupBox();
@@ -321,12 +325,45 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripDropDownButton2, toolStripButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripDropDownButton2, toolStripDropDownButton3, toolStripButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripDropDownButton3
+            // 
+            toolStripDropDownButton3.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton3.DropDownItems.AddRange(new ToolStripItem[] { 自定义模板生成功能ToolStripMenuItem });
+            toolStripDropDownButton3.Image = (Image)resources.GetObject("toolStripDropDownButton3.Image");
+            toolStripDropDownButton3.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            toolStripDropDownButton3.Size = new Size(98, 24);
+            toolStripDropDownButton3.Text = "实验性功能";
+            toolStripDropDownButton3.ToolTipText = "打开实验性功能以提前体验正在开发的新内容";
+            // 
+            // 自定义模板生成功能ToolStripMenuItem
+            // 
+            自定义模板生成功能ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 挂载模板生成动态库文件dllToolStripMenuItem, 卸载模板生成动态库文件ToolStripMenuItem });
+            自定义模板生成功能ToolStripMenuItem.Name = "自定义模板生成功能ToolStripMenuItem";
+            自定义模板生成功能ToolStripMenuItem.Size = new Size(227, 26);
+            自定义模板生成功能ToolStripMenuItem.Text = "自定义模板生成功能";
+            自定义模板生成功能ToolStripMenuItem.ToolTipText = "用户可自定义模板生成的测试功能";
+            // 
+            // 挂载模板生成动态库文件dllToolStripMenuItem
+            // 
+            挂载模板生成动态库文件dllToolStripMenuItem.Name = "挂载模板生成动态库文件dllToolStripMenuItem";
+            挂载模板生成动态库文件dllToolStripMenuItem.Size = new Size(309, 26);
+            挂载模板生成动态库文件dllToolStripMenuItem.Text = "挂载模板生成动态库文件（.dll）";
+            挂载模板生成动态库文件dllToolStripMenuItem.ToolTipText = "你可以在任意开发环境中编写属于自己的二维码模板生成类库并挂载到此处";
+            // 
+            // 卸载模板生成动态库文件ToolStripMenuItem
+            // 
+            卸载模板生成动态库文件ToolStripMenuItem.Name = "卸载模板生成动态库文件ToolStripMenuItem";
+            卸载模板生成动态库文件ToolStripMenuItem.Size = new Size(309, 26);
+            卸载模板生成动态库文件ToolStripMenuItem.Text = "卸载模板生成动态库文件";
+            卸载模板生成动态库文件ToolStripMenuItem.ToolTipText = "选择后将引导你在另外的窗口卸载指定的自定义模板生成";
             // 
             // toolStripButton1
             // 
@@ -767,5 +804,9 @@
         private Button button1;
         private ToolStripMenuItem 带有UUID信息的二维码ToolStripMenuItem;
         private ToolStripButton toolStripButton1;
+        private ToolStripDropDownButton toolStripDropDownButton3;
+        private ToolStripMenuItem 自定义模板生成功能ToolStripMenuItem;
+        private ToolStripMenuItem 挂载模板生成动态库文件dllToolStripMenuItem;
+        private ToolStripMenuItem 卸载模板生成动态库文件ToolStripMenuItem;
     }
 }

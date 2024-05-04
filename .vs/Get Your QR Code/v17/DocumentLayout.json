@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\desktop\\1331\\Get Your QR Code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\get your qr code.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:get your qr code.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -15,24 +11,28 @@
       "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\get your qr code.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:get your qr code.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|d:\\desktop\\1331\\get your qr code\\mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\updatelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:updatelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\mouldspawn_wlan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:mouldspawn_wlan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\updatelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:updatelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|solutionrelative:mouldspawn_uuid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{004CB127-8125-4C34-9590-16B22525C86A}|Get Your QR Code.csproj|D:\\desktop\\1331\\Get Your QR Code\\mouldspawn_wlan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
@@ -79,40 +79,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MouldSpawn_UUID.cs",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_UUID.cs",
               "RelativeDocumentMoniker": "MouldSpawn_UUID.cs",
               "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_UUID.cs",
               "RelativeToolTip": "MouldSpawn_UUID.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAQwBcAAAAtAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-28T13:11:27.382Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MouldSpawn_UUID.cs [\u8BBE\u8BA1]",
+              "DocumentIndex": 7,
+              "Title": "MouldSpawn_UUID.cs [Design]",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_UUID.cs",
               "RelativeDocumentMoniker": "MouldSpawn_UUID.cs",
-              "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_UUID.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "MouldSpawn_UUID.cs [\u8BBE\u8BA1]",
+              "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_UUID.cs [Design]",
+              "RelativeToolTip": "MouldSpawn_UUID.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-28T13:04:34.667Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "MouldSpawn_WLAN.cs",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_WLAN.cs",
               "RelativeDocumentMoniker": "MouldSpawn_WLAN.cs",
               "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_WLAN.cs",
               "RelativeToolTip": "MouldSpawn_WLAN.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T11:26:55.562Z"
+              "WhenOpened": "2024-04-17T11:26:55.562Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -123,7 +124,8 @@
               "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\MouldSpawn_WLAN.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "MouldSpawn_WLAN.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T11:26:09.84Z"
+              "WhenOpened": "2024-04-17T11:26:09.84Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
             },
             {
               "$type": "Document",
@@ -138,14 +140,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "UpdateLog.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\UpdateLog.cs",
               "RelativeDocumentMoniker": "UpdateLog.cs",
               "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\UpdateLog.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "UpdateLog.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T08:27:40.009Z"
+              "WhenOpened": "2024-04-17T08:27:40.009Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
             },
             {
               "$type": "Document",
@@ -161,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Get Your QR Code",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\Get Your QR Code.csproj",
               "RelativeDocumentMoniker": "Get Your QR Code.csproj",
@@ -173,20 +176,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\desktop\\1331\\Get Your QR Code\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAACEDAAAAAAAAAAAMwCgDAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T14:42:25.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\desktop\\1331\\Get Your QR Code\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

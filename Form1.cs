@@ -3,6 +3,7 @@ using System.Drawing.Imaging;
 using static QRCoder.QRCodeGenerator;
 using OpenCvSharp;
 using System.Diagnostics;
+using System.IO;
 
 namespace Get_Your_QR_Code
 {
